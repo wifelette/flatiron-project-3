@@ -1,0 +1,12 @@
+<h1><%= @perk.name %></h1>
+
+<p><strong>Description </strong><br>
+  <%= @perk.description %></p>
+<p><strong>Deliverable </strong><br>
+  <%= @perk.deliverable %><br></p>
+
+<%= link_to "Edit this Perk", edit_perk_path %><br>
+
+<%= button_to "Delete Perk", @perk, method: :delete %>
+
+<p><%= link_to "Back to All Perks", perks_path %></p>

@@ -1,0 +1,9 @@
+<h1>Perks</h1>
+
+<ul>
+  <% @perks.each do |perk| %>
+  <li><%= link_to perk.name, perk_path(perk) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Perk", new_perk_path %>

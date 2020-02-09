@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sponsorships</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-  </head>
+<head>
+  <title>Sponsorships</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+</head>
+
+<body>
+  <% flash.each do |key, value| %>
+  <div class="alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+</body>
+
 </html>
