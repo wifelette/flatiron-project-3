@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_034642) do
+ActiveRecord::Schema.define(version: 2020_02_10_034227) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_02_09_034642) do
     t.string "deliverable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "limited", default: false
+    t.boolean "paid_addon", default: false
   end
 
 end
