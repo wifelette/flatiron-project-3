@@ -1,0 +1,10 @@
+<h1><%= @event.name %> Sponsorship Packages</h1>
+
+<ul>
+  <% @packages.each do |pkg| %>
+  <li><%= link_to pkg.name, event_package_path(@event, pkg) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Package", new_event_package_path, class: "button create" %><br>
+<%= link_to "Back to Event", event_path(@event), class: "button index" %>

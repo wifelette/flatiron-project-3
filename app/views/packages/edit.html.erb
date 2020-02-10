@@ -1,0 +1,5 @@
+<h1>Edit <%= @package.name %></h1>
+
+<%= render 'form', package: @package %>
+
+<p><%= link_to "Back to All Packages for this Event", event_packages_path %></p>

@@ -1,0 +1,10 @@
+<h1><%= @package.name %></h1>
+
+<p><strong>Price </strong><br>
+  <%= @package.price %></p>
+
+<%= link_to "Edit this Package", edit_event_package_path, class: "button edit"  %><br>
+
+<%= button_to "Delete Package", [@event, @package], method: :delete, class: "button delete" %>
+
+<p><%= link_to "Back to All Packages in this Event", event_packages_path, class: "button index"  %></p>

@@ -1,14 +1,29 @@
 <h1><%= @event.name %></h1>
 
 <p><strong>Start Date </strong><br>
-  <%= @event.start_date %></p>
+  <%= prettydate(@event.start_date) %></p>
 <p><strong>End Date </strong><br>
-  <%= @event.end_date %><br></p>
+  <%= prettydate(@event.end_date) %><br></p>
 <p><strong>Location </strong><br>
   <%= @event.location %><br></p>
 
-<%= link_to "Edit this Event", edit_event_path %><br>
+<%= link_to "Edit Event", edit_event_path, class: "button edit" %>
+<%= button_to "Delete Event", @event, method: :delete, class: "button delete" %>
 
-<%= button_to "Delete Event", @event, method: :delete %>
+<hr>
 
-<p><%= link_to "Back to All Events", events_path %></p>
+<h2>Packages</h2>
+
+<p>
+  <ul>
+    <% @event.packages.each do |pkg| %>
+    <li><%= link_to pkg.name, event_package_path(pkg) %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to "Create New Package", new_event_package_path(@event), class: "button create" %><br>
+
+<hr>
+
+<%= link_to "Back to All Events", events_path, class: "button index" %></p>
