@@ -2,4 +2,4 @@
 
 <%= render 'form', package: @package %>
 
-<p><%= link_to "Back to All Packages for this Event", event_packages_path, class: "button index" %></p>
+<p><%= link_to "Back to Package", event_package_path(@package), class: "button index"  %></p>
