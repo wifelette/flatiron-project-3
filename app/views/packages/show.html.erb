@@ -3,12 +3,6 @@
 <p><strong>Price </strong><br>
   <%= @package.price %></p>
 
-<%= link_to "Edit Package", edit_event_package_path, class: "button edit"  %><br>
-
-<%= button_to "Delete Package", [@event, @package], method: :delete, class: "button delete" %>
-
-<hr>
-
 <h2>Package Perks</h2>
 <ul>
   <% @package.specs.each do |spec| %>
@@ -17,5 +11,10 @@
   <% end %>
 </ul>
 
+<%= link_to "Edit Package", edit_event_package_path, class: "button edit"  %><br>
+
+<%= button_to "Delete Package", [@event, @package], method: :delete, class: "button delete" %>
+
 <hr>
+
 <p><%= link_to "Back to All Packages in this Event", event_packages_path, class: "button index"  %></p>
