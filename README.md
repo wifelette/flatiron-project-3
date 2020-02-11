@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<%= link_to "Edit Perks", { controller: "specs", package_id: "#{@package.id}", action: "new"}, class: "button edit" %><br>
+

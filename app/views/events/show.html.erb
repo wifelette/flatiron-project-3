@@ -17,7 +17,7 @@
 <p>
   <ul>
     <% @event.packages.each do |pkg| %>
-    <li><%= link_to pkg.name, event_package_path(pkg) %></li>
+    <li><%= link_to pkg.name, event_package_path(@event, pkg) %></li>
     <% end %>
   </ul>
 </p>

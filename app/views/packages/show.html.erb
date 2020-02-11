@@ -3,8 +3,19 @@
 <p><strong>Price </strong><br>
   <%= @package.price %></p>
 
-<%= link_to "Edit this Package", edit_event_package_path, class: "button edit"  %><br>
+<%= link_to "Edit Package", edit_event_package_path, class: "button edit"  %><br>
 
 <%= button_to "Delete Package", [@event, @package], method: :delete, class: "button delete" %>
 
+<hr>
+
+<h2>Package Perks</h2>
+<ul>
+  <% @package.specs.each do |spec| %>
+  <li><%= spec.perk.name %>
+    <% if spec.qty > 1 %>(<%= spec.qty %>) <% end %></li>
+  <% end %>
+</ul>
+
+<hr>
 <p><%= link_to "Back to All Packages in this Event", event_packages_path, class: "button index"  %></p>

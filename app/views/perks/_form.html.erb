@@ -8,5 +8,11 @@
 <%= f.label :deliverable %><br>
 <%= f.text_area :deliverable, size: "50x3" %><br>
 
+<%= f.label :limited %><br>
+<%= f.check_box :limited %><br>
+
+<%= f.label "Paid Addon" %><br>
+<%= f.check_box :paid_addon %><br>
+
 <%= f.submit "Submit", class: "button generic" %>
 <% end %>

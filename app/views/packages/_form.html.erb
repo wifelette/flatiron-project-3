@@ -5,5 +5,34 @@
 <%= f.label :price %>
 <%= f.text_field :price %><br>
 
-<%= f.submit "Submit", class: "button generic" %>
+<%= f.submit "Save Package", class: "button generic" %>
 <% end %>
+
+<h1>Package Perks</h1>
+
+<ul>
+  <% @package.specs.each do |spec| %>
+  <li>
+    <%= spec.perk.name %> <% if spec.qty > 1 %> (<%= spec.qty %>) <% end %>
+    <%= button_to "Delete", spec, method: :delete, class: "button delete"  %>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_for Spec.new do |s| %>
+<%= s.hidden_field :package_id, value: @package.id %>
+<p>
+  <label> Qty <%= s.number_field :qty, value: 1 %></label>
+</p>
+<p>
+  <label>Perk <%= s.select(:perk_id, Perk.all.collect { |p| [ p.name, p.id ] }) %>
+  </label>
+</p>
+<%= s.submit "Add Perk", class: "button generic" %>
+<% end %>
+
+<%# # TODO: Add validation of uniqeness with scope, so that you can only add each perk 1 time to each packages
+# (if you need multiples, that's what the Qty is for)
+# TODO: Make a differently styled small delete button for these inline deletes %>
+
+<%# FIXME: If you try to add a Perk before you save your package, nothing happens. It should either not let you do it until you saved the other info, or it should give a warning or something.  %>
