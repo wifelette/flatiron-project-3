@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_034227) do
+ActiveRecord::Schema.define(version: 2020_02_10_235641) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,25 @@ ActiveRecord::Schema.define(version: 2020_02_10_034227) do
     t.datetime "updated_at", null: false
     t.boolean "limited", default: false
     t.boolean "paid_addon", default: false
+  end
+
+  create_table "specs", force: :cascade do |t|
+    t.integer "qty"
+    t.integer "package_id"
+    t.integer "perk_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_specs_on_package_id"
+    t.index ["perk_id"], name: "index_specs_on_perk_id"
+  end
+
+  create_table "sponsorships", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "package_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_sponsorships_on_company_id"
+    t.index ["package_id"], name: "index_sponsorships_on_package_id"
   end
 
 end
