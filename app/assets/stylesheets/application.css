@@ -81,6 +81,13 @@
   color: #ffffff;
 }
 
+.button.delete.small {
+  font-size: 10px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 .button.delete:hover {
   background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
   background-color: #c62d1f;

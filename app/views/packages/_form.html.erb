@@ -10,14 +10,18 @@
 
 <h1>Package Perks</h1>
 
-<ul>
+<table>
+  <tr>
+    <th>Perk</th>
+    <th>Options</th>
+  </tr>
   <% @package.specs.each do |spec| %>
-  <li>
-    <%= spec.perk.name %> <% if spec.qty > 1 %> (<%= spec.qty %>) <% end %>
-    <%= button_to "Delete", spec, method: :delete, class: "button delete"  %>
-  </li>
+  <tr>
+    <td><%= spec.perk.name %> <% if spec.qty > 1 %> (<%= spec.qty %>) <% end %></td>
+    <td><%= button_to "Delete", spec, method: :delete, class: "button delete small"  %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
 
 <%= form_for Spec.new do |s| %>
 <%= s.hidden_field :package_id, value: @package.id %>
