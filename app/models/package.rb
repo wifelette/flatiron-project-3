@@ -1,6 +1,6 @@
 class Package < ApplicationRecord
   belongs_to :event
-  has_many :specs
+  has_many :specs, dependent: :destroy
   has_many :perks, through: :specs
 
   validates :name, presence: true
