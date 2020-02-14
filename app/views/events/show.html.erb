@@ -14,13 +14,18 @@
 
 <h2>Packages</h2>
 
-<p>
-  <ul>
-    <% @event.packages.each do |pkg| %>
-    <li><%= link_to pkg.name, event_package_path(@event, pkg) %></li>
-    <% end %>
-  </ul>
-</p>
+<table>
+  <tr>
+    <th>Package</th>
+    <th>Price</th>
+  </tr>
+  <% @event.packages.sort_by(&:price).reverse.each do |pkg| %>
+  <tr>
+    <td><%= link_to pkg.name, event_package_path(@event, pkg) %></td>
+    <td><%= in_money(pkg.price) %></td>
+  </tr>
+  <% end %>
+</table>
 
 <%= link_to "Create New Package", new_event_package_path(@event), class: "button create" %><br>
 
