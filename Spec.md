@@ -38,16 +38,16 @@
   - _/events/:id/packages_ and _/events/:id/packages/:id_
 - [x] Include nested resource "new" form
   - _events/1/packages/new_
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [ ] Include form display of validation errors; fields should be enclosed within a `fields_with_errors` class
 
 #### Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
+- [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
 
 ### Other Requirements Not Listed Here:
-- [ ] Lots of small commits
+- [x] Lots of small commits
 - [x] Copy this checklist
 - [ ] Write a README.md
 - [ ] Submit a video of how a user would interact with your working web application.
