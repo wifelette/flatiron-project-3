@@ -2,7 +2,16 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :delete]
 
   def index
-    @events = Event.all
+    @events_current = Event.not_yet_happened
+    @events_past = Event.already_happened
+  end
+
+  def current
+    @events = Event.not_yet_happened
+  end
+
+  def past
+    @events = Event.already_happened
   end
 
   def new
@@ -13,8 +22,11 @@ class EventsController < ApplicationController
     event = Event.create(event_params)
     if event.save
       redirect_to event
-    else
+    elsif event.name == ""
       flash[:red] = "Event requires a name."
+      redirect_to new_event_url 
+    else
+      flash[:red] = "Event names must be unique."
       redirect_to new_event_url 
     end
   end
