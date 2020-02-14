@@ -19,15 +19,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(event_params)
-    if event.save
+    @event = Event.create(event_params)
+    if @event.save
       redirect_to event
-    elsif event.name == ""
+    elsif @event.name == ""
       flash[:red] = "Event requires a name."
-      redirect_to new_event_url 
+      render :new 
     else
       flash[:red] = "Event names must be unique."
-      redirect_to new_event_url 
+      render :new 
     end
   end
 
