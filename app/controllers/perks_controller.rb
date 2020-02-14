@@ -10,12 +10,11 @@ class PerksController < ApplicationController
   end
 
   def create
-    perk = Perk.create(perk_params)
-    if perk.save
-      redirect_to perk
+    @perk = Perk.create(perk_params)
+    if @perk.save
+      redirect_to @perk
     else
-      flash[:red] = "Perk requires a name."
-      redirect_to new_perk_url 
+      render :new 
     end
   end
 

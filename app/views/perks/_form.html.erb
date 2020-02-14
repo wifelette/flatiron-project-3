@@ -1,18 +1,28 @@
 <%= form_for perk do |f| %>
-<%= f.label :name %><br>
-<%= f.text_area :name, size: "50x2" %><br>
-
-<%= f.label :description %><br>
-<%= f.text_area :description, size: "50x3" %><br>
-
-<%= f.label :deliverable %><br>
-<%= f.text_area :deliverable, size: "50x3" %><br>
-
-<%= f.label :limited %><br>
-<%= f.check_box :limited %><br>
-
-<%= f.label "Paid Addon" %><br>
-<%= f.check_box :paid_addon %><br>
-
+<p class="formy">
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, size: "50x2", title: "Error needed"%>
+  <% if perk.errors.any? %>
+  <span class="error_details">
+    <%= "Name " + perk.errors[:name].join + "." %>
+  </span>
+  <% end %>
+</p>
+<p class="formy">
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "50x3" %>
+</p>
+<p class="formy">
+  <%= f.label :deliverable %>
+  <%= f.text_area :deliverable, size: "50x3" %>
+</p>
+<p class="formy">
+  <%= f.label :limited %>
+  <%= f.check_box :limited %>
+</p>
+<p class="formy">
+  <%= f.label "Paid Addon" %>
+  <%= f.check_box :paid_addon %>
+</p>
 <%= f.submit "Submit", class: "button generic" %>
 <% end %>
