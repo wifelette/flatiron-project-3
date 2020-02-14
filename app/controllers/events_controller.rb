@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.create(event_params)
     if @event.save
-      redirect_to event
+      redirect_to @event
     elsif @event.name == ""
       flash[:red] = "Event requires a name."
       render :new 
