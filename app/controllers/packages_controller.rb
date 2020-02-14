@@ -1,6 +1,6 @@
 class PackagesController < ApplicationController
   before_action :set_event
-  before_action :set_package, only: [:show, :edit, :update]
+  before_action :set_package, only: [:show, :edit, :update, :destroy, :delete]
 
   def index
     @packages = Package.where(event_id: params[:event_id])
@@ -33,6 +33,15 @@ class PackagesController < ApplicationController
       flash[:red] = "You submitted invalid data."
       redirect_to edit_event_package_url
     end
+  end
+
+  def delete
+  end
+
+  def destroy
+    @package.destroy
+    flash[:red] = "Package has been deleted."
+    redirect_to @event
   end
 
   private
