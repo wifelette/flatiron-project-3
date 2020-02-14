@@ -1,7 +1,7 @@
 <h1><%= @package.name %></h1>
 
 <p><strong>Price </strong><br>
-  <%= @package.price %></p>
+  <%= in_money(@package.price) %></p>
 
 <h2>Package Perks</h2>
 <ul>
@@ -17,4 +17,4 @@
 
 <hr>
 
-<p><%= link_to "Back to All Packages in this Event", event_packages_path, class: "button index"  %></p>
+<p><%= link_to "Back to Event", event_path, class: "button index"  %></p>
