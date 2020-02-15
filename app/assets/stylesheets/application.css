@@ -25,16 +25,18 @@
 }
 
 .button {
+  text-align: center;
   border-radius: 6px;
   display: inline-block;
   cursor: pointer;
   font-family: Arial;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
-  padding: 8px 29px;
+  padding: 8px;
   text-decoration: none;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  min-width: 30px
 }
 
 .button.index {
@@ -81,7 +83,7 @@
   color: #ffffff;
 }
 
-.button.delete.small {
+.button.small {
   font-size: 10px;
   padding: 5px 10px;
   margin-bottom: 5px;

@@ -1,10 +1,19 @@
 <h1>Perks</h1>
 
-<ul>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Options</th>
+  </tr>
   <% @perks.each do |perk| %>
-  <li><%= link_to perk.name, perk_path(perk) %></li>
-  <% end %>
-</ul>
+  <tr>
+    <td><%= perk.name %></td>
+    <td><%= link_to "View", perk_path(perk), class: "button index small" %>
+    <td><%= link_to "Edit", edit_perk_path(perk), class: "button edit small"  %></td>
+    <td><%= button_to "Delete", perk, method: :delete, class: "button delete small"  %></td>
+    <% end %>
+  </tr>
+</table>
 
 <%= link_to "Create a New Perk", new_perk_path, class: "button create"  %><br>
 <%= link_to "Back to Events", events_path, class: "button index" %><br>
