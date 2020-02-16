@@ -52,3 +52,9 @@ gem "omniauth-github", "~> 1.4"
 gem "dotenv-rails", "~> 2.7"
 
 gem "bootstrap", "~> 4.4"
+
+gem "jquery-rails", "~> 4.3"
+
+gem "bootstrap-sass", "~> 3.4"
+
+gem "sprockets", "~> 3.7"

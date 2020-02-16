@@ -9,8 +9,6 @@
 <p><strong>Paid Addon </strong><br>
   <%= @perk.paid_addon %><br></p>
 
-<%= link_to "Edit this Perk", edit_perk_path, class: "button edit"  %><br>
-
-<%= button_to "Delete Perk", @perk, method: :delete, class: "button delete"  %>
-
-<p><%= link_to "Back to All Perks", perks_path, class: "button index"  %></p>
+<p><%= link_to "Edit this Perk", edit_perk_path, class: "btn btn-warning" %></p>
+<p><%= button_to "Delete Perk", @perk, method: :delete, class: "btn btn-danger" %></p>
+<p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>

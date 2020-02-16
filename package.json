@@ -2,6 +2,7 @@
   "name": "sponsorships",
   "private": true,
   "dependencies": {
+    "bootstrap-sass": "^3.4.1",
     "startbootstrap-sb-admin-2": "^4.0.7"
   }
 }

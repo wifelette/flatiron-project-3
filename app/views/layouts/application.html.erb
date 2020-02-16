@@ -12,16 +12,29 @@
 </head>
 
 <body>
-  <% flash.each do |key, value| %>
-  <div class="alert-<%= key %>"><%= value %></div>
-  <% end %>
+  <div class="card">
+    <div class="card-header">
+      Sponsorships App
+    </div>
+    <div class="card-body">
+      <% if flash.present? %>
+      <div class="alert alert-warning" role="alert">
+        <% flash.each do |key, value| %>
+        <div class="alert-<%= key %>">
+          <%= value %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <div class="card-body">
+        <%= yield %>
+      </div>
 
-  <%= yield %>
-
-  <% if user_signed_in? %>
-  <hr>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button delete" %>
-  <% end %>
+      <% if user_signed_in? %>
+      <hr>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    </div>
 </body>
 
 </html>

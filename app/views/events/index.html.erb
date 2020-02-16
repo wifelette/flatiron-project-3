@@ -1,27 +1,30 @@
-<h1>Events</h1>
+<div class="card">
+  <div class="card-header h3">
+    Events
+  </div>
+  <div class="card body container-fluid">
+    <h3><%= link_to "Current and Future", current_path %></h3>
+    <ul>
+      <% @events_current.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ul>
 
-<h2><%= link_to "Current and Future", current_path %></h2>
-<ul>
-  <% @events_current.each do |event| %>
-  <li><%= link_to event.name, event_path(event) %></li>
-  <% end %>
-</ul>
+    <% if @events_past.any? %>
+    <h3><%= link_to "Past", past_path %></h3>
+    <ul>
+      <% @events_past.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ul>
+    <% end %>
 
-<% if @events_past.any? %>
-<h2><%= link_to "Past", past_path %></h2>
-<ul>
-  <% @events_past.each do |event| %>
-  <li><%= link_to event.name, event_path(event) %></li>
-  <% end %>
-</ul>
-<% end %>
+    <%= link_to "Create a New Event", new_event_path, class: "btn btn-success" %>
 
-<%= link_to "Create a New Event", new_event_path, class: "button create" %>
+    <h2>Settings</h2>
 
-<hr>
-
-<h1>Settings</h1>
-
-<ul>
-  <li><%= link_to "Manage Perks", perks_path %>
-</ul>
+    <ul>
+      <li><%= link_to "Manage Perks", perks_path %>
+    </ul>
+  </div>
+</div>
