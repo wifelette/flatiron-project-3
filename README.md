@@ -1,27 +1,19 @@
-# README
+# Sponsorships 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Sponsorships app is designed to help Event Planners organize their sponsorship packages across events. Create as many different events, sponsorships, perks and configurations as you need.
 
-Things you may want to cover:
+### Getting Up and Running
 
-* Ruby version
+Clone the Babies at Work repo to your local machine. 
 
-* System dependencies
+Once the app is on your machine, run `bundle` from the project directory  to install the neccessary gems. Then, run `rails s` from the project directory to start the server. Last, in a modern browser, navigate to http://localhost:3000. 
 
-* Configuration
+### Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/wifelette/flatiron-project-3. 
 
-* Database initialization
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* How to run the test suite
+### License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-<%= link_to "Edit Perks", { controller: "specs", package_id: "#{@package.id}", action: "new"}, class: "button edit" %><br>
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
