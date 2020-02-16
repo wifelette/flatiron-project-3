@@ -38,7 +38,7 @@
   - _/events/:id/packages_ and _/events/:id/packages/:id_
 - [x] Include nested resource "new" form
   - _events/1/packages/new_
-- [ ] Include form display of validation errors; fields should be enclosed within a `fields_with_errors` class
+- [x] Include form display of validation errors; fields should be enclosed within a `fields_with_errors` class
 
 #### Confirm:
 - [ ] The application is pretty DRY
@@ -49,8 +49,8 @@
 ### Other Requirements Not Listed Here:
 - [x] Lots of small commits
 - [x] Copy this checklist
-- [ ] Write a README.md
+- [x] Write a README.md
 - [ ] Submit a video of how a user would interact with your working web application.
 - [ ] Blog post
 - [x] Github URL link via form
-- [ ] Check each box in your spec.md + explain how you've met the requirement
+- [x] Check each box in your spec.md + explain how you've met the requirement
