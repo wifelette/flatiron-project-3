@@ -3,11 +3,23 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Limited?</th>
+    <th>$ Addon?</th>
     <th>Options</th>
   </tr>
   <% @perks.each do |perk| %>
   <tr>
     <td><%= perk.name %></td>
+    <td>
+      <% if perk.limited.present? %>
+      ✅
+      <% end %>
+    </td>
+    <td>
+      <% if perk.paid_addon.present? %>
+      ✅
+      <% end %>
+    </td>
     <td><%= link_to "View", perk_path(perk), class: "button index small" %>
     <td><%= link_to "Edit", edit_perk_path(perk), class: "button edit small"  %></td>
     <td><%= button_to "Delete", perk, method: :delete, class: "button delete small"  %></td>
