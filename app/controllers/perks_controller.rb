@@ -31,7 +31,7 @@ class PerksController < ApplicationController
       redirect_to perks_path
     else
       flash[:red] = "Your Perk update wasn't saved."
-      redirect_to edit_perk_url
+      render :edit
     end
   end
 
