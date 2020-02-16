@@ -1,5 +1,7 @@
 {
   "name": "sponsorships",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "^4.0.7"
+  }
 }
