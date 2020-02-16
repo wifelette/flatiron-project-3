@@ -11,13 +11,12 @@ class PackagesController < ApplicationController
   end
 
   def create
-    package = @event.packages.build(package_params)
+    @package = @event.packages.build(package_params)
 
-    if package.save
-      redirect_to [@event, package]
+    if @package.save
+      redirect_to [@event, @package]
     else
-      flash[:red] = "Package did not save."
-      redirect_to new_event_package_url 
+      render :new 
     end
   end
 

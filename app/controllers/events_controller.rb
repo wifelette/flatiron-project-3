@@ -22,11 +22,9 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
     if @event.save
       redirect_to @event
-    elsif @event.name == ""
-      flash[:red] = "Event requires a name."
+    elsif @event.name.empty?
       render :new 
     else
-      flash[:red] = "Event names must be unique."
       render :new 
     end
   end
@@ -43,7 +41,7 @@ class EventsController < ApplicationController
       flash[:green] = "Event has been updated."
       redirect_to @event
     else
-      redirect_to edit_event_url
+      render :edit
     end
   end
 

@@ -1,10 +1,17 @@
 <%= form_for [@event, package] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-
-<%= f.label :price %>
-<%= f.text_field :price %><br>
-
+<p class="formy">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <% if package.errors.any? %>
+  <span class="error_details">
+    <%= "Name " + package.errors[:name].join + "." %>
+  </span>
+  <% end %>
+</p>
+<p class="formy">
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+</p>
 <%= f.submit "Save Package", class: "button generic" %>
 <% end %>
 
@@ -26,11 +33,11 @@
 <%= form_for Spec.new do |s| %>
 <%= s.hidden_field :package_id, value: @package.id %>
 <p>
-  <label> Qty <%= s.number_field :qty, value: 1 %></label>
-</p>
-<p>
   <label>Perk <%= s.select(:perk_id, Perk.all.collect { |p| [ p.name, p.id ] }) %>
   </label>
+</p>
+<p>
+  <label> Qty <%= s.number_field :qty, value: 1 %></label>
 </p>
 <%= s.submit "Add Perk", class: "button generic" %>
 <% end %>
