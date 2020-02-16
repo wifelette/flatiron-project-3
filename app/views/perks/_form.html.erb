@@ -1,7 +1,7 @@
 <%= form_for perk do |f| %>
 <p class="formy">
   <%= f.label :name, "Name" %>
-  <%= f.text_field :name, size: "50x2", title: "Error needed"%>
+  <%= f.text_field :name, size: "50x2" %>
   <% if perk.errors.any? %>
   <span class="error_details">
     <%= "Name " + perk.errors[:name].join + "." %>
