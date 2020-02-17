@@ -17,3 +17,7 @@ This project is intended to be a safe, welcoming space for collaboration, and co
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Design / Planning
+
+![Database Diagram](/public/db.png)
