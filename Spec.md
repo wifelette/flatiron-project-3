@@ -46,7 +46,7 @@
 - [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
 
-### Other Requirements Not Listed Here:
+### Other Requirements Not Listed in Spec file:
 - [x] Lots of small commits
 - [x] Copy this checklist
 - [x] Write a README.md
@@ -54,3 +54,10 @@
 - [ ] Blog post
 - [x] Github URL link via form
 - [x] Check each box in your spec.md + explain how you've met the requirement
+
+### Notes for Me
+
+- [Bootstrap Theme](https://startbootstrap.com/themes/sb-admin-2/)
+- [Live Theme Example](https://blackrockdigital.github.io/startbootstrap-sb-admin-2/index.html)
+- [CSS File Direct Link](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/master/login.html)
+- [Components Docs](https://getbootstrap.com/docs/4.4/components/alerts/)
