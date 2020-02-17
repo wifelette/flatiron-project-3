@@ -1,14 +1,20 @@
-<h1><%= @perk.name %></h1>
+<div class="card-header h3">
+  Edit <%= @perk.name %>
+</div>
+<div class="card body container-fluid">
 
-<p><strong>Description </strong><br>
-  <%= @perk.description %></p>
-<p><strong>Deliverable </strong><br>
-  <%= @perk.deliverable %><br></p>
-<p><strong>Limited </strong><br>
-  <%= @perk.limited %><br></p>
-<p><strong>Paid Addon </strong><br>
-  <%= @perk.paid_addon %><br></p>
+  <h5>Description</h5>
+  <p><%= @perk.description %></p>
+  <h5>Deliverable </h5>
+  <p><%= @perk.deliverable %></p>
+  <h5>Limited </h5>
+  <p><%= @perk.limited %></p>
+  <h5>Paid Addon </h5>
+  <p><%= @perk.paid_addon %></p>
 
-<p><%= link_to "Edit this Perk", edit_perk_path, class: "btn btn-warning" %></p>
-<p><%= button_to "Delete Perk", @perk, method: :delete, class: "btn btn-danger" %></p>
-<p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "Edit this Perk", edit_perk_path, class: "btn btn-warning" %></p>
+  <%= button_to "Delete Perk", @perk, method: :delete, class: "btn btn-danger" %>
+  <p>
+    <p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>
+  </p>
+</div>

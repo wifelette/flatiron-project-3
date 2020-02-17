@@ -1,3 +1,8 @@
-<h1>Edit <%= @perk.name %></h1>
+<div class="card-header h3">
+  Edit Perk
+</div>
+<div class="card body container-fluid">
 
-<%= render 'form', perk: @perk %>
+  <%= render 'form', perk: @perk %>
+  <p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>
+</div>

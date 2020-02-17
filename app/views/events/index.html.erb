@@ -1,8 +1,12 @@
 <div class="card">
-  <div class="card-header h3">
+  <div class="card-header h3 d-sm-flex align-items-center justify-content-between">
     Events
+    <a href="<%= perks_path %>" class="btn btn-secondary btn-icon-split">
+      <span class="icon text-white-50">⚙️</span>
+      <span class="text">Manage Perks</span>
+    </a>
   </div>
-  <div class="card body container-fluid">
+  <div class="body container-fluid">
     <h3><%= link_to "Current and Future", current_path %></h3>
     <ul>
       <% @events_current.each do |event| %>
@@ -19,12 +23,6 @@
     </ul>
     <% end %>
 
-    <%= link_to "Create a New Event", new_event_path, class: "btn btn-success" %>
-
-    <h2>Settings</h2>
-
-    <ul>
-      <li><%= link_to "Manage Perks", perks_path %>
-    </ul>
+    <p><%= link_to "Create a New Event", new_event_path, class: "btn btn-success" %></p>
   </div>
 </div>

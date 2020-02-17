@@ -17,12 +17,16 @@
   <%= f.text_area :deliverable, size: "50x3" %>
 </p>
 <p class="formy">
-  <%= f.label :limited %>
-  <%= f.check_box :limited %>
+  <div class="custom-control custom-switch">
+    <%= f.check_box :limited, class: "custom-control-input", id: "customSwitch1"%>
+    <%= f.label :limited, class: "custom-control-label", for: "customSwitch1" %>
+  </div>
 </p>
 <p class="formy">
-  <%= f.label "Paid Addon" %>
-  <%= f.check_box :paid_addon %>
+  <div class="custom-control custom-switch">
+    <%= f.check_box :paid_addon, class: "custom-control-input", id: "customSwitch2"%>
+    <%= f.label "Paid Addon", class: "custom-control-label", for: "customSwitch2" %>
+  </div>
 </p>
 <p><%= f.submit "Submit", class: "btn btn-success" %></p>
 <% end %>
