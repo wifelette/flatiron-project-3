@@ -61,3 +61,5 @@
 - [Live Theme Example](https://blackrockdigital.github.io/startbootstrap-sb-admin-2/index.html)
 - [CSS File Direct Link](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/master/login.html)
 - [Components Docs](https://getbootstrap.com/docs/4.4/components/alerts/)
+- [QDB Database Schema](https://app.quickdatabasediagrams.com/#/d/QFvCj4)
+- [DBDiagram.io Database Schema](https://dbdiagram.io/d/5e4ad8009e76504e0ef18d5c)
