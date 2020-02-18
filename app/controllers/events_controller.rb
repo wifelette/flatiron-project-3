@@ -22,8 +22,6 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
     if @event.save
       redirect_to @event
-    elsif @event.name.empty?
-      render :new 
     else
       render :new 
     end
