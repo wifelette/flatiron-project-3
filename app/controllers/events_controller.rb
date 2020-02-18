@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(name: event_params[:name], start_date: event_params[:start_date], end_date: event_params[:end_date], location: event_params[:location])
+    @event.update(event_params)
     if @event.save
       flash[:green] = "Event has been updated."
       redirect_to @event
