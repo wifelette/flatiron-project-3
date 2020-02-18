@@ -50,7 +50,7 @@
 - [x] Lots of small commits
 - [x] Copy this checklist
 - [x] Write a README.md
-- [ ] Submit a video of how a user would interact with your working web application.
+- [x] Submit a video of how a user would interact with your working web application.
 - [x] [Blog post](https://wifelette.github.io/narrow_the_right_scope)
 - [x] Github URL link via form
 - [x] Check each box in your spec.md + explain how you've met the requirement
