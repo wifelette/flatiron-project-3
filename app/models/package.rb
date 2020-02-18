@@ -1,6 +1,5 @@
 class Package < ApplicationRecord
   belongs_to :event
-  # If you delete a Package, delete all the Specs tied to it as well:
   has_many :specs, dependent: :destroy
   has_many :perks, through: :specs
 

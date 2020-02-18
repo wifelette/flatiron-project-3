@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: "events#index"
-  resources :specs, only: [:edit, :new, :create, :destroy]
+  resources :specs, only: [:show, :edit, :new, :create, :destroy]
   resources :events do 
     resources :packages
   end
