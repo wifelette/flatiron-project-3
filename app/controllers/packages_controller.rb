@@ -1,8 +1,10 @@
 class PackagesController < ApplicationController
   before_action :set_event
-  before_action :set_package, only: [:show, :edit, :update, :destroy, :delete]
+  before_action :set_package, except: [:index, :new, :create]
+  # Previously I had `only: [:show, :edit, :update, :destroy]`, but this is shorter. As the list gets longer, check to reevaluate which is more efficient.
 
   def index
+    # Limit the Index here to only the packages that are in a specific Event.
     @packages = Package.where(event_id: params[:event_id])
   end
 
@@ -24,7 +26,8 @@ class PackagesController < ApplicationController
   end
 
   def update
-    @package.update(name: package_params[:name], price: package_params[:price])
+    @package.update(package_params)
+    
     if @package.save
       flash[:green] = "Package has been updated."
       redirect_to [@event, @package]
