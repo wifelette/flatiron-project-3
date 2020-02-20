@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :packages
+  has_many :packages, dependent: :destroy
   scope :not_yet_happened, -> { where("start_date > ?", Time.now) } 
   
   validates :name, uniqueness: true, presence: true
