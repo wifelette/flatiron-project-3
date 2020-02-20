@@ -1,9 +1,6 @@
 class SpecsController < ApplicationController
   before_action :set_package, except: [:create, :destroy]
 
-  def edit
-  end
-
   def new
     @spec = Spec.new
   end
