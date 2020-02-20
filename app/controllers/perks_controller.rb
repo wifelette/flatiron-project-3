@@ -25,7 +25,7 @@ class PerksController < ApplicationController
   end
 
   def update
-    @perk.update(name: perk_params[:name], description: perk_params[:description], deliverable: perk_params[:deliverable], limited: perk_params[:limited], paid_addon: perk_params[:paid_addon])
+    @perk.update(perk_params)
     if @perk.save
       flash[:green] = "Perk has been updated."
       redirect_to perks_path
