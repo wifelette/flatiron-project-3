@@ -1,20 +1,44 @@
 <div class="card-header h3">
-  Edit <%= @perk.name %>
+  View Perk
 </div>
 <div class="card body container-fluid">
 
+  <h5>Name</h5>
+  <p><strong><%= @perk.name %></strong></p>
   <h5>Description</h5>
   <p><%= @perk.description %></p>
   <h5>Deliverable </h5>
   <p><%= @perk.deliverable %></p>
   <h5>Limited </h5>
-  <p><%= @perk.limited %></p>
+  <p>
+    <% if @perk.limited == true %>
+    ✅
+    <% else %>
+    ❌
+    <% end %>
+  </p>
   <h5>Paid Addon </h5>
-  <p><%= @perk.paid_addon %></p>
+  <p>
+    <% if @perk.paid_addon == true %>
+    ✅
+    <% else %>
+    ❌
+    <% end %>
+  </p>
 
-  <p><%= link_to "Edit this Perk", edit_perk_path, class: "btn btn-warning" %></p>
-  <%= button_to "Delete Perk", @perk, method: :delete, class: "btn btn-danger" %>
+  <p><%= link_to "Edit", edit_perk_path, class: "btn btn-warning" %></p>
+  <%= button_to "Delete", @perk, method: :delete, class: "btn btn-danger" %>
   <p>
     <p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>
   </p>
+  <hr>
+  <h4>Where is This Perk In Use</h4>
+  <p>This Perk is in use in <%= perk_use_count %> event
+    packages<% if perk_use_count > 0 %>:<% else %>.<% end %>
+    <ul>
+      <% @perk.packages.each do |package| %>
+      <li><%= link_to package.event.name, event_path(package.event) %></li>
+      &nbsp;&nbsp;<%= link_to "#{package.name} Package", event_package_path(package.event, package) %>
+      <% end %>
+    </ul>
 </div>
