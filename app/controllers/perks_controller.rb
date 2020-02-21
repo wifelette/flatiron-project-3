@@ -28,7 +28,7 @@ class PerksController < ApplicationController
     @perk.update(perk_params)
     if @perk.save
       flash[:green] = "Perk has been updated."
-      redirect_to perks_path
+      redirect_to perk_path
     else
       flash[:red] = "Your Perk update wasn't saved."
       render :edit
