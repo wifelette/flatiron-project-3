@@ -1,5 +1,5 @@
 <div class="card-header h3">
-  <%= @package.name %>
+  <%= @package.name %> Package @ <%= @package.event.name %>
 </div>
 <div class="card body container-fluid">
 
@@ -10,6 +10,7 @@
   <ul>
     <% @package.specs.each do |spec| %>
     <li><%= spec.perk.name %>
+      <%# If the quantity is more than one, show the Qty inline—otherwise skip it %>
       <% if spec.qty > 1 %>(<%= spec.qty %>) <% end %></li>
     <% end %>
   </ul>
