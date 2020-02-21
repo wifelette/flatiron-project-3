@@ -10,6 +10,7 @@ class PackagesController < ApplicationController
 
   def new
     @package = Package.new
+    @package.specs = Perk.all.map { |perk| Spec.new(qty: 0, perk: perk) }
   end
 
   def create
@@ -18,22 +19,36 @@ class PackagesController < ApplicationController
     if @package.save
       redirect_to [@event, @package]
     else
-      render :new 
+      render :new
     end
   end
 
   def edit
+    missing_perks = Perk.all - @package.specs.map(&:perk)
+    missing_perks.each do |perk|
+      @package.specs.build(qty: 0, perk: perk)
+    end
   end
 
   def update
+    package_params[:specs_attributes].each do |_k, v|
+      # If the spec existed and the quantity was reduced to 0,
+      # mark the attribute with `_destroy`, which will tell
+      # the update method to destroy the association / Spec record
+      if v["id"] && v["qty"] == "0"
+        v["_destroy"] = true
+      end
+    end
+
     @package.update(package_params)
-    
+
     if @package.save
       flash[:green] = "Package has been updated."
       redirect_to [@event, @package]
     else
       flash[:red] = "You submitted invalid data."
       redirect_to edit_event_package_url
+      # Should this be render :edit?? If there were errors yes so we could use/see them, but this right now is just to catch bugs—there shouldn't be anhy use case where you can hit this clause in the logic
     end
   end
 
@@ -57,6 +72,6 @@ class PackagesController < ApplicationController
   end
 
   def package_params
-    params.require(:package).permit(:name, :price)
+    @package_params ||= params.require(:package).permit(:name, :price, specs_attributes: [:qty, :perk_id, :id])
   end
 end

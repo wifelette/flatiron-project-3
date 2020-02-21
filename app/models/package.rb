@@ -6,4 +6,6 @@ class Package < ApplicationRecord
 
   validates :name, presence: true
   validates :price, numericality: { only_integer: true, allow_nil: true }
+
+  accepts_nested_attributes_for :specs, allow_destroy: true, reject_if: ->(attrs) { attrs["qty"] == "0" }
 end

@@ -1,3 +1,21 @@
+<head>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<script>
+  jQuery($ => {
+    $(".quantity-right-plus").on("click", e => {
+      let input = e.delegateTarget.parentNode.previousElementSibling;
+      input.stepUp();
+    });
+
+    $(".quantity-left-minus").on("click", e => {
+      let input = e.delegateTarget.parentNode.nextElementSibling.nextElementSibling;
+      input.stepDown();
+    });
+  });
+</script>
+
 <%= form_for [@event, package] do |f| %>
 <p class="formy">
   <%= f.label :name %>
@@ -17,41 +35,37 @@
   </span>
   <% end %>
 </p>
-<p><%= f.submit "Save Package", class: "btn btn-success" %></p>
-<% end %>
-
-<% unless package.new_record? %>
-<h2>Package Perks</h2>
 
 <table class="table table-striped table-hover table-sm">
   <tr>
     <thead class="thead-light">
-      <th>Perk</th>
+      <th class="perks">Perk</th>
       <th>Options</th>
     </thead>
   </tr>
-  <% @package.specs.each do |spec| %>
+  <%= f.fields_for :specs do |f| %>
   <tr>
-    <td><%= spec.perk.name %> <% if spec.qty > 1 %> (<%= spec.qty %>) <% end %></td>
-    <td><%= button_to "Delete", spec, method: :delete, class: "btn btn-danger"  %></td>
+    <td class="perks"><%= f.object.perk.name %></td>
+    <td>
+      <div class="col-4">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </span>
+          <%= f.hidden_field :perk_id %>
+          <%= f.number_field :qty, class: "form-control input-number", min: 0, max: 20 %>
+          <span class="input-group-btn">
+            <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </td>
   </tr>
   <% end %>
 </table>
-
-<%= form_for Spec.new do |s| %>
-<%= s.hidden_field :package_id, value: @package.id %>
-<p>
-  <label>Perk <%= s.select(:perk_id, Perk.all.collect { |p| [ p.name, p.id ] }) %>
-  </label>
-</p>
-<p>
-  <label> Qty <%= s.number_field :qty, value: 1 %></label>
-</p>
-<p><%= s.submit "Add Perk", class: "btn btn-success" %></p>
+<p><%= f.submit "Save Package", class: "btn btn-success" %></p>
 <% end %>
-<% end %>
-
-<%# # TODO: Add validation of uniqeness with scope, so that you can only add each perk 1 time to each packages
-# (if you need multiples, that's what the Qty is for)
-
-<%# FIXME: If you try to add a Perk before you save your package, nothing happens. It should either not let you do it until you saved the other info, or it should give a warning or something.  %>
