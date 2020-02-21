@@ -1976,6 +1976,10 @@ pre code {
   color: #858796;
 }
 
+.table-sm .perks {
+  padding-left: 20px;
+}
+
 .table th,
 .table td {
   padding: 0.75rem;
@@ -1990,11 +1994,12 @@ pre code {
 
 .table tbody+tbody {
   border-top: 2px solid #e3e6f0;
+
 }
 
 .table-sm th,
 .table-sm td {
-  padding: 0.3rem;
+  padding: 0.05rem;
 }
 
 .table-bordered {
@@ -12668,4 +12673,46 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.input-group-btn {
+  height: 46px;
+}
+
+.input-group>.glyphicon {
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-minus:before {
+  content: "\2212";
+}
+
+.glyphicon-minus-sign:before {
+  content: "\e082";
+}
+
+.glyphicon-plus:before {
+  content: "\2b";
+}
+
+.glyphicon-plus-sign:before {
+  content: "\e081";
 }
