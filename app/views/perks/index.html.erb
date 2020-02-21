@@ -27,6 +27,7 @@
             <% end %>
           </td>
           <td><%= link_to "View", perk_path(perk), class: "btn btn-primary small" %>
+          <td><%= link_to "Edit", edit_perk_path(perk), class: "btn btn-warning small"  %></td>
           <td><%= button_to "Delete", perk, method: :delete, class: "btn btn-danger small"  %></td>
           <% end %>
         </tr>
