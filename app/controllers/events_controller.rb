@@ -7,6 +7,8 @@ class EventsController < ApplicationController
   end
 
   def current
+    # These views aren't really useful at this stage, but the project requirement specified views for the Scope method. 
+    # I already have them in some of the Controller#index views but am double-ticking the box just to be sure.
     @events = Event.not_yet_happened
   end
 
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event
     else
+      # Needs render instead of redirect so that the @event remains even if the save fails, to trigger field_with_errors
       render :new 
     end
   end
