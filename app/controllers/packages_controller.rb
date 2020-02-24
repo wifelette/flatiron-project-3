@@ -10,6 +10,8 @@ class PackagesController < ApplicationController
 
   def new
     @package = Package.new
+    # This line creates a spec for every perk, for this package
+    # It's blank, aka {Qty: 0}, so that the form can render, and elesehwere, we'll reject the zero ones so we don't create unnecessary Spec records with 0 perks
     @package.specs = Perk.all.map { |perk| Spec.new(qty: 0, perk: perk) }
   end
 
@@ -25,18 +27,20 @@ class PackagesController < ApplicationController
 
   def edit
     missing_perks = Perk.all - @package.specs.map(&:perk)
+    # Same thing as lines 13/14—we need temporary {Qty: 0} records so the form can render
     missing_perks.each do |perk|
       @package.specs.build(qty: 0, perk: perk)
     end
   end
 
   def update
-    package_params[:specs_attributes].each do |_k, v|
+    package_params[:specs_attributes].each do |_k, value|
       # If the spec existed and the quantity was reduced to 0,
       # mark the attribute with `_destroy`, which will tell
-      # the update method to destroy the association / Spec record
-      if v["id"] && v["qty"] == "0"
-        v["_destroy"] = true
+      # the update method to destroy the association / Spec record;
+      # TL;DR delete the Spec record if you've deleted the Perk from the package
+      if value["id"] && value["qty"] == "0"
+        value["_destroy"] = true
       end
     end
 
@@ -46,9 +50,9 @@ class PackagesController < ApplicationController
       flash[:green] = "Package has been updated."
       redirect_to [@event, @package]
     else
-      flash[:red] = "You submitted invalid data."
+      flash[:red] = "You've submitted invalid data."
       redirect_to edit_event_package_url
-      # Should this be render :edit?? If there were errors yes so we could use/see them, but this right now is just to catch bugs—there shouldn't be anhy use case where you can hit this clause in the logic
+      # Should this be render :edit?? If there were errors yes so we could use/see them, but this right now is just to catch bugs; there shouldn't be any use case where you can hit this clause in the logic
     end
   end
 
