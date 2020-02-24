@@ -27,7 +27,7 @@
   </p>
 
   <p><%= link_to "Edit", edit_perk_path, class: "btn btn-warning" %></p>
-  <%= button_to "Delete", @perk, method: :delete, class: "btn btn-danger" %>
+  <%= button_to "Delete", @perk, method: :delete, class: "btn btn-danger", data: { confirm: "Deleting this Perk will remove it from #{perk_use_count} packages." } %>
   <p>
     <p><%= link_to "Back to All Perks", perks_path, class: "btn btn-primary" %></p>
   </p>
