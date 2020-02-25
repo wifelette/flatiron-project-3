@@ -35,9 +35,6 @@ class PerksController < ApplicationController
     end
   end
 
-  def delete
-  end
-
   def destroy
     @perk.destroy
     flash[:red] = "Perk has been deleted."

@@ -13,6 +13,8 @@ class SpecsController < ApplicationController
   def destroy
     spec = Spec.find(params[:id])
     spec.destroy
+    # There were previously multiple delete buttons in different places, and I wanted it to basically go back to whichever place it came from.
+    # Fallback_location says "if for some reason Rails can't figure out what back means, then go to X location."
     redirect_back fallback_location: @package
   end
 
