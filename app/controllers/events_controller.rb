@@ -2,8 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :delete]
 
   def index
-    @events_current = Event.not_yet_happened
-    @events_past = Event.already_happened
+    if params[:name]
+      @events = Event.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @events_current = Event.not_yet_happened
+      @events_past = Event.already_happened
+    end
   end
 
   def current

@@ -6,6 +6,27 @@
       <span class="text">Manage Perks</span>
     </a>
   </div>
+
+  <div class="body container-fluid">
+    <%= form_tag events_url, method: :get do %>
+    <label>Search Events:</label><br>
+    <%= text_field_tag :name, params[:name] %><br><br>
+    <%= submit_tag "Search", name: nil, class: "btn btn-secondary" %><br>
+    <% end %>
+  </div>
+
+  <% if @events %>
+  <div class="body container-fluid">
+    <h3>Search Results</h3>
+    <ul>
+      <% @events.each do |event| %>
+      <li>
+        <%= link_to event.name, event_path(event) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% else %>
   <div class="body container-fluid">
     <h3><%= link_to "Current and Future", current_path %></h3>
     <ul>
@@ -25,4 +46,5 @@
 
     <p><%= link_to "Create a New Event", new_event_path, class: "btn btn-success" %></p>
   </div>
+  <% end %>
 </div>
