@@ -11,19 +11,11 @@
   <p><%= @perk.deliverable %></p>
   <h5>Limited </h5>
   <p>
-    <% if @perk.limited == true %>
-    ✅
-    <% else %>
-    ❌
-    <% end %>
+    <%= status_mark @perk.limited %>
   </p>
   <h5>Paid Addon </h5>
   <p>
-    <% if @perk.paid_addon == true %>
-    ✅
-    <% else %>
-    ❌
-    <% end %>
+    <%= status_mark @perk.paid_addon %>
   </p>
 
   <p><%= link_to "Edit", edit_perk_path, class: "btn btn-warning" %></p>
