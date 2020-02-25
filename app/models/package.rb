@@ -9,4 +9,5 @@ class Package < ApplicationRecord
 
   # Since in the Controller we create empty records to render the form, this then rejects them if they don't end up used
   accepts_nested_attributes_for :specs, allow_destroy: true, reject_if: ->(attrs) { attrs["qty"] == "0" }
+  # allow_destroy is what makes the `_destroy` in the Controller work
 end

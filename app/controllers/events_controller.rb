@@ -46,9 +46,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def delete
-  end
-
   def destroy
     @event.destroy
     flash[:red] = "Event has been deleted."
